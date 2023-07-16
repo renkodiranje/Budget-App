@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+}
+header {
+  background-image: url("https://cdn.pixabay.com/photo/2020/06/14/22/33/investment-5299600_1280.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  div:first-child {
+    width: 25%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h3 {
+    font-family: "Times New Roman", Times, serif;
+    padding-top: 20px;
+  }
+  #valueBudget {
+    font-size: 4em;
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  #signBudget {
+    font-size: 4em;
+  }
+  #income {
+    background-color: $incomeColor;
+  }
+  #expensess {
+    background-color: $expensessColor;
+    margin-bottom: 0;
+
+    button {
+      background-color: $buttonPercentage;
+      border: none;
+      color: white;
+      border-radius: 2px;
+      font-size: xx-small;
+
+      line-height: 22px;
+    }
+  }
+  div p {
+    text-align: left;
+    padding: 10px;
+  }
+  p {
+    position: relative;
+    button {
+      float: right;
+    }
+  }
+  .amounts {
+    position: absolute;
+    right: 60px;
+  }
+}

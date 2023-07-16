@@ -1,0 +1,58 @@
+table {
+  tr:nth-child(even) {
+    background-color: $formBackground;
+    span {
+      background-color: $formBackground;
+    }
+  }
+  tr:first-child {
+    border-top: 1px solid rgb(151, 148, 148);
+  }
+  tr {
+    border-bottom: 1px solid rgb(151, 148, 148);
+    position: relative;
+  }
+  td {
+    padding: 10px;
+  }
+  td:nth-child(2) {
+    text-align: right;
+  }
+  td:first-child {
+    color: rgb(59, 144, 59);
+  }
+}
+#tableIncome {
+  td:nth-child(2) {
+    color: rgb(32, 32, 157);
+    span {
+      color: rgb(32, 32, 157);
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+#tableExpensess {
+  td:nth-child(2) {
+    color: rgb(229, 70, 46);
+    span {
+      color: rgb(229, 70, 46);
+      margin: 0;
+      padding: 0;
+    }
+    button {
+      height: 5px;
+      line-height: 3px;
+      border: none;
+      margin-left: 10px;
+      padding: 10px 5px;
+      color: rgb(229, 70, 46);
+      background-color: rgb(240, 155, 141);
+      border-radius: 2px;
+      font-size: xx-small;
+      span {
+        background-color: transparent;
+      }
+    }
+  }
+}

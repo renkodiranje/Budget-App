@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Budget app</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="pb-4">
+        <h3>Available Budget in <span id="currentTimeSpan"></span></h3>
+        <div>
+          <span id="signBudget"></span>
+          <p id="valueBudget" class="d-inline-block"></p>
+        </div>
+        <p id="income">
+          INCOME
+          <span class="amounts"
+            ><span id="incomeValueSign"></span><span id="incomeValue"></span
+          ></span>
+        </p>
+        <p id="expensess">
+          EXPENSESS
+          <span class="amounts"
+            ><span id="expensessValueSign"></span
+            ><span id="expensessValue"></span></span
+          ><button id="expensessPercentage"></button>
+        </p>
+      </div>
+    </header>
+
+    <article class="border-bottom border-primary">
+      <form action="" class="p-2" id="form">
+        <div class="center">
+          <select
+            name="select"
+            id="select"
+            onchange="changeSelect()"
+            class="p-2 me-2"
+          >
+            <option value="plus" id="plus">+</option>
+            <option value="minus" id="minus" selected>-</option>
+          </select>
+
+          <input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Add description"
+            maxlength="50"
+            required
+            class="p-2 border border-primary border-opacity-50 me-2 rounded"
+          />
+          <input
+            type="number"
+            min="1"
+            placeholder="Value"
+            class="p-2 border border-primary border-opacity-50 me-2 rounded"
+            id="number"
+            required
+          />
+          <button type="submit" id="image" class="m-2">
+            <img src="image/accept.webp" alt="submit" />
+          </button>
+        </div>
+      </form>
+    </article>
+    <section>
+      <div class="row m-4">
+        <div class="col-4 offset-2">
+          <h2 class="m-4 ms-0 text-success">INCOME</h2>
+          <table id="tableIncome" class="table table-striped"></table>
+        </div>
+        <div class="col-4">
+          <h2 class="m-4 text-danger">EXPENSESS</h2>
+          <table id="tableExpensess" class="table table-striped m-4"></table>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
