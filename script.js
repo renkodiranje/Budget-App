@@ -74,10 +74,12 @@ function calculation() {
   incomeValueHeader.textContent = sumIncome;
 
   //expensess
-  let expensPercent = 0;
+
   if (sumExpencess > 0) {
     expensessValueSignHeader.textContent = "-";
   }
+
+  let expensPercent = 0;
   if (sumIncome == 0) {
     expensessPercentageHeader.textContent = "total";
   } else {
@@ -94,9 +96,18 @@ calculation();
 //adding from form
 
 addCase.addEventListener("click", function () {
-  let btnVal = expensPercent;
+  let btnVal = 0;
   let descVal = description.value;
   let numbVal = number.value;
+  let sumIncome = 0;
+  for (let i = 0; i < arrIncome.length; i++) {
+    sumIncome += Number(arrIncome[i][1]);
+  }
+  if (sumIncome == 0) {
+    btnVal = "total";
+  } else {
+    btnVal = ((numbVal * 100) / sumIncome).toFixed(0);
+  }
   if (select.value == "plus" && number.value >= 1) {
     let arrIncom = [];
     arrIncom.push(descVal);
@@ -113,7 +124,7 @@ addCase.addEventListener("click", function () {
   }
 });
 
-//dprint the table
+//print the table
 
 function print() {
   for (let i = 0; i < arrExpenses.length; i++) {
@@ -121,6 +132,7 @@ function print() {
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
     let button = document.createElement("button");
+    button.setAttribute("id", "x");
     let spanMinus = document.createElement("span");
     let spanPercent = document.createElement("span");
     spanMinus.textContent = "-";
@@ -151,6 +163,7 @@ function print() {
   }
 }
 print();
+
 // change color of submit button when select option is clicked
 
 function changeSelect() {

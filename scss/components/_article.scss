@@ -1,6 +1,8 @@
 form {
   background-color: $formBackground;
-
+  select {
+    cursor: pointer;
+  }
   button {
     border: none;
     border-radius: 50%;
@@ -12,8 +14,8 @@ form {
     width: 20px;
     height: 20px;
   }
-  input {
-    color: $formBackground;
+  input::placeholder {
+    color: rgb(126, 177, 150);
   }
   input[type="number"] {
     width: 100px;
