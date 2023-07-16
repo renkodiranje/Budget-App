@@ -1,0 +1,29 @@
+@media screen and(max-width:768px) {
+  header {
+    div:first-child {
+      width: 80%;
+    }
+    #valueBudget,
+    #signBudget {
+      font-size: 2em;
+    }
+  }
+  form {
+    input[type="number"] {
+      width: 50px;
+    }
+    input[type="text"] {
+      width: 120px;
+    }
+    .center {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+  #offset {
+    margin-left: 0;
+  }
+  #tableExpensess {
+    margin: 0px;
+  }
+}

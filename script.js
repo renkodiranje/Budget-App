@@ -65,7 +65,7 @@ function calculation() {
     signBudgetHeader.textContent = "+";
   }
 
-  //income
+  //income field
 
   if (sumIncome > 0) {
     incomeValueSignHeader.textContent = "+";
@@ -73,7 +73,7 @@ function calculation() {
   sumIncome = sumIncome.toFixed(2);
   incomeValueHeader.textContent = sumIncome;
 
-  //expensess
+  //expensess field
 
   if (sumExpencess > 0) {
     expensessValueSignHeader.textContent = "-";
@@ -89,11 +89,10 @@ function calculation() {
 
   sumExpencess = sumExpencess.toFixed(2);
   expensessValueHeader.textContent = sumExpencess;
-  //table button
 }
 calculation();
 
-//adding from form
+//adding from form to local storage
 
 addCase.addEventListener("click", function () {
   let btnVal = 0;
@@ -132,7 +131,10 @@ function print() {
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
     let button = document.createElement("button");
-    button.setAttribute("id", "x");
+    let img = document.createElement("img");
+    img.setAttribute("src", "image/button.webp");
+    img.setAttribute("alt", "delete");
+
     let spanMinus = document.createElement("span");
     let spanPercent = document.createElement("span");
     spanMinus.textContent = "-";
@@ -146,12 +148,36 @@ function print() {
     button.append(spanPercent);
     td2.append(button);
     tr.append(td2);
+    tr.append(img);
     tableExpensess.append(tr);
+
+    //delete
+
+    img.addEventListener("click", (e) => {
+      console.log(e.target);
+      if (e.target.tagName == "IMG") {
+        e.target.parentNode.remove();
+
+        let index = null;
+        for (let i = 0; i < arrExpenses.length; i++) {
+          if (e.target.parentNode.textContent == arrExpenses[i]) {
+            index = i;
+          }
+        }
+        arrExpenses.splice(index, 1);
+        console.log(arrExpenses);
+        localStorage.setItem("listOfExpenses", JSON.stringify(arrExpenses));
+      }
+    });
   }
   for (let i = 0; i < arrIncome.length; i++) {
     let tr = document.createElement("tr");
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
+    let img = document.createElement("img");
+    img.setAttribute("src", "image/button.webp");
+    img.setAttribute("alt", "delete");
+
     let spanPlus = document.createElement("span");
     spanPlus.textContent = "+";
     td1.textContent = arrIncome[i][0];
@@ -159,7 +185,25 @@ function print() {
     tr.append(td1);
     td2.prepend(spanPlus);
     tr.append(td2);
+    tr.append(img);
     tableIncome.append(tr);
+
+    //delete
+
+    img.addEventListener("click", (e) => {
+      console.log(e.target);
+      if (e.target.tagName == "IMG") {
+        e.target.parentNode.remove();
+      }
+      let index = 0;
+      for (let i = 0; i < arrIncome.length; i++) {
+        if (e.target.parentNode.textContent == arrIncome[i]) {
+          index = i;
+        }
+        arrIncome.splice(index, 1);
+        localStorage.setItem("listOfIncome", JSON.stringify(arrIncome));
+      }
+    });
   }
 }
 print();
