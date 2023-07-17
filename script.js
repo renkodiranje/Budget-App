@@ -91,7 +91,6 @@ function calculation() {
   expensessValueHeader.textContent = sumExpencess;
 }
 calculation();
-
 //adding from form to local storage
 
 addCase.addEventListener("click", function () {
@@ -157,17 +156,30 @@ function print() {
       console.log(e.target);
       if (e.target.tagName == "IMG") {
         e.target.parentNode.remove();
-
-        let index = null;
-        for (let i = 0; i < arrExpenses.length; i++) {
-          if (e.target.parentNode.textContent == arrExpenses[i]) {
-            index = i;
-          }
-        }
-        arrExpenses.splice(index, 1);
-        console.log(arrExpenses);
-        localStorage.setItem("listOfExpenses", JSON.stringify(arrExpenses));
       }
+      let index = null;
+      for (let i = 0; i < arrExpenses.length; i++) {
+        console.log(e.target.parentNode);
+        let b = e.target.parentNode.childNodes[0].textContent;
+        let a = e.target.parentNode.childNodes[1].textContent;
+        console.log(b);
+        console.log(a);
+        console.log(arrExpenses[0][0]);
+        console.log(arrExpenses[0][1]);
+        if (
+          e.target.parentNode.childNodes[0].textContent == arrExpenses[i][0] &&
+          e.target.parentNode.childNodes[1].textContent.includes(
+            arrExpenses[i][1]
+          )
+        ) {
+          index = i;
+        }
+      }
+      console.log(index);
+      arrExpenses.splice(index, 1);
+      console.log(arrExpenses);
+      localStorage.setItem("listOfExpenses", JSON.stringify(arrExpenses));
+      location.reload();
     });
   }
   for (let i = 0; i < arrIncome.length; i++) {
@@ -195,14 +207,27 @@ function print() {
       if (e.target.tagName == "IMG") {
         e.target.parentNode.remove();
       }
-      let index = 0;
+      let index = null;
+
       for (let i = 0; i < arrIncome.length; i++) {
-        if (e.target.parentNode.textContent == arrIncome[i]) {
+        console.log(e.target.parentNode.childNodes[0].textContent);
+        console.log(e.target.parentNode.childNodes[1].textContent);
+        console.log(arrIncome[0][0]);
+        console.log(arrIncome[0][1]);
+        if (
+          e.target.parentNode.childNodes[0].textContent == arrIncome[i][0] &&
+          e.target.parentNode.childNodes[1].textContent.includes(
+            arrIncome[i][1]
+          )
+        ) {
           index = i;
         }
-        arrIncome.splice(index, 1);
-        localStorage.setItem("listOfIncome", JSON.stringify(arrIncome));
       }
+      console.log(index);
+      arrIncome.splice(index, 1);
+      console.log(arrIncome);
+      localStorage.setItem("listOfIncome", JSON.stringify(arrIncome));
+      location.reload();
     });
   }
 }
