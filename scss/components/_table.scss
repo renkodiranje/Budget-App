@@ -15,8 +15,9 @@ table {
     img {
       display: none;
       float: right;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
+      margin: 7px 10px;
     }
   }
   td {
@@ -29,7 +30,13 @@ table {
     color: rgb(59, 144, 59);
   }
   tr:hover img {
-    display: block;
+    display: inline;
+    opacity: 0.8;
+  }
+  tr {
+    img:hover {
+      opacity: 1;
+    }
   }
 }
 #tableIncome {

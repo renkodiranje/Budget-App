@@ -91,6 +91,7 @@ function calculation() {
   expensessValueHeader.textContent = sumExpencess;
 }
 calculation();
+
 //adding from form to local storage
 
 addCase.addEventListener("click", function () {
